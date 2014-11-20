@@ -1,0 +1,30 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<form method="patch" target="my_iframe">
+  <input type="submit" value="Do Stuff!" />
+</form>
+
+<!-- when the form is submitted, the server response will appear in this iframe -->
+<iframe name="my_iframe" id="my_iframe" src="#"></iframe>
+
+<script>
+function startUpload()
+{            
+    $("#my_iframe").dialog("open");
+}
+
+function stopUpload()
+{            
+    $("#my_iframe").dialog("close");
+}
+</script>
+
+<%= link_to 'Back', articles_path %>

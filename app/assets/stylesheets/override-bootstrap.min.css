@@ -1,0 +1,24 @@
+.panel-group .panel {
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 0;
+    overflow: auto;
+}
+
+.panel-default {
+    border-color: #707070;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 13px;
+}
+
+.panel {
+    background-color: #FAFAFA;
+ }
+/*
+ body {
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 4.429;
+}*/

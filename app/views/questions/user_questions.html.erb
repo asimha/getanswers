@@ -1,0 +1,28 @@
+<%= form_for Question.new, :url => questions_path, :method => :get, :html=>{:class=>"pull-right", :style=>"m-bottom:0px;"} do |f| %>
+
+    <div class="input-group col-sm-9 col-sm-offset-3">
+      <input type="text" name="query" placeholder="Search ..." class="form-control">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-default">Search!</button>
+      </span>
+    </div><!-- /input-group -->
+
+    <%- end %>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<h1>Questions</h1>
+	<%= link_to "Ask a question", new_question_path, :class => "btn btn-info" %>
+	<div id="accordion" class="panel-group">
+		<% @questions.each do |q| %>
+			<div class="panel panel-default">
+				<%= q.question %>
+				<%= image_tag q.photo.to_s %>
+			</div>
+			<div>
+				<br/>
+				<%= link_to "See Answers", answers_path(question_id: q.id), :class => "btn btn-info"  %>
+				<%= link_to "Write an Answer", new_answer_path(question_id: q.id ), :class => "btn btn-info" %><br/><br/>
+			</div>
+		<% end %>
+	</div>
+	<br/><br/><br/>
+</div>

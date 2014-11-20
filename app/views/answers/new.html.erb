@@ -1,0 +1,7 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<%= form_for @answer do |f| %>
+		<%= hidden_field_tag :question_id,@question.id %>
+		<%= f.text_area :answer, :placeholder => "Write your Answer"%>
+		<%= f.submit %>
+	<% end %>
+</div>
