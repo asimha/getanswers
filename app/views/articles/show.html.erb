@@ -8,23 +8,6 @@
   <%= @article.text %>
 </p>
 
-<form method="patch" target="my_iframe">
-  <input type="submit" value="Do Stuff!" />
-</form>
-
-<!-- when the form is submitted, the server response will appear in this iframe -->
-<iframe name="my_iframe" id="my_iframe" src="#"></iframe>
-
-<script>
-function startUpload()
-{            
-    $("#my_iframe").dialog("open");
-}
-
-function stopUpload()
-{            
-    $("#my_iframe").dialog("close");
-}
-</script>
+<div><%= link_to 'Edit', edit_article_path(@article) %></div>
 
 <%= link_to 'Back', articles_path %>

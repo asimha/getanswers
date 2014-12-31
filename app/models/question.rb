@@ -6,5 +6,5 @@ class Question < ActiveRecord::Base
 
   scope :search, lambda {|query| where("LOWER(question) LIKE LOWER('%#{query}%')") }
 
-  mount_uploader :photo, PhotoUploader
+  # mount_uploader :photo, PhotoUploader
 end
