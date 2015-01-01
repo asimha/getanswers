@@ -26,9 +26,17 @@ class QuestionsController < ApplicationController
     @questions = @user.questions
   end
 
+  def technical_question
+    @technical_question = Question.where(:technical => true).all
+  end
+
+  def non_technical_question
+    @non_technical_question = Question.where(:non_technical => true)
+  end
+
   private
   def question_params
-    params.require(:question).permit(:question, :photo)
+    params.require(:question).permit(:question, :photo, :technial, :non_technical)
   end
 
   def get_collections

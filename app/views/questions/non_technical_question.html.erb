@@ -13,10 +13,9 @@
 	<%= link_to "Ask a question", new_question_path, :class => "btn btn-info" %>
 	<%= link_to "My questions", my_questions_path, :class => "btn btn-info" %>
 	<%= link_to "Technical questions", technical_questions_path, :class => "btn btn-info"%>
-	<%= link_to "Non Technical questions", non_technical_questions_path, :class => "btn btn-info"%>
 	<br/><br/>
 	<div id="accordion" class="panel-group">
-		<% @questions.each do |q| %>
+		<% @non_technical_question.each do |q| %>
 			<div class="panel panel-default">
 				<%= q.question %>
 			</div>
