@@ -26,6 +26,7 @@
 				<%= link_to "Write an Answer", new_answer_path(question_id: q.id ), :class => "btn btn-info" %><br/><br/>
 			</div>
 		<% end %>
+		<%= paginate @questions %>
 	</div>
 	<br/><br/><br/>
 </div>

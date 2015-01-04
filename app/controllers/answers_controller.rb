@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   def index
     @question = Question.find params[:question_id]
-    @answers = Answer.where("question_id = ?", params[:question_id])
+    @answers = Answer.where("question_id = ?", params[:question_id]).page(params[:page]).per(10)
   end
   
   def new

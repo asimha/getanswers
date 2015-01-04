@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   def index
     get_collections
-    @answers = Answer.where("question_id = ?", params[:question_id])
+    @answers = Answer.where("question_id = ?", params[:question_id]).page(params[:page]).per(10)
   end
 
   def new
@@ -47,7 +47,7 @@ class QuestionsController < ApplicationController
       relation = relation.search(@query) if !@query.blank?
     end
 
-    @questions = relation.order("created_at desc")
+    @questions = relation.order("created_at desc").page(params[:page]).per(10)
 
     ## Initializing the @user object so that we can render the show partial
     @question = @questions.first unless @question
