@@ -6,18 +6,35 @@ class QuestionsController < ApplicationController
     @answers = Answer.where("question_id = ?", params[:question_id]).page(params[:page]).per(10)
   end
 
-  def new
+  def technical_new
     @question = Question.new
   end
 
-  def create
+  def non_technical_new
+    @question = Question.new
+  end
+
+  def technical_create
     @question = Question.new(question_params)
+    @question.technical = true
     @user = current_user
     @question.user_id = @user.id
     if @question.save
-      redirect_to questions_path 
+      redirect_to technical_questions_path 
     else
-      render 'new'
+      render 'technical_new'
+    end
+  end
+
+  def non_technical_create
+    @question = Question.new(question_params)
+    @question.non_technical = true
+    @user = current_user
+    @question.user_id = @user.id
+    if @question.save
+      redirect_to non_technical_questions_path 
+    else
+      render 'non_technical_new'
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101052023) do
+ActiveRecord::Schema.define(version: 20150105152922) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150101052023) do
     t.string   "photo"
     t.boolean  "technical",     default: false
     t.boolean  "non_technical", default: false
+    t.string   "category"
   end
 
   create_table "users", force: true do |t|

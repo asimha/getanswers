@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # root :to => 'questions#index'
   resources :questions
     get 'my_questions' => 'questions#user_questions'
+    get 'technical_new' => 'questions#technical_new'
+    get 'non_technical_new' => 'questions#non_technical_new'
+    post 'technical_create' => 'questions#technical_create'
+    post 'non_technical_create' => 'questions#non_technical_create'
     get 'technical_questions' => 'questions#technical_question'
     get 'non_technical_questions' => 'questions#non_technical_question'
   resources :answers
