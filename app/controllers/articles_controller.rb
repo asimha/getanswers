@@ -11,7 +11,6 @@ before_action :authenticate_user!
   def create
     @article = Article.new(article_params)
     @article.user_id = current_user.id
-    binding.pry
     if @article.save
       redirect_to @article
     else
