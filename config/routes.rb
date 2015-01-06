@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     post 'non_technical_create' => 'question/non_technical_questions#non_technical_create'
     get 'non_technical_questions' => 'question/non_technical_questions#non_technical_question'
 
+    get 'about' => 'welcome#about'
+
   resources :answers
 
   resources :articles
