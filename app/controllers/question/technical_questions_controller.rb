@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Question::TechnicalQuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
@@ -7,10 +7,6 @@ class QuestionsController < ApplicationController
   end
 
   def technical_new
-    @question = Question.new
-  end
-
-  def non_technical_new
     @question = Question.new
   end
 
@@ -26,39 +22,19 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def non_technical_create
-    @question = Question.new(question_params)
-    @question.non_technical = true
+  def user_technical_questions
     @user = current_user
-    @question.user_id = @user.id
-    if @question.save
-      redirect_to non_technical_questions_path 
-    else
-      render 'non_technical_new'
-    end
-  end
-
-  def user_questions
-    @user = current_user
-    @questions = @user.questions
-  end
-
-  def technical_question
-    @technical_question = Question.where(:technical => true).all
-  end
-
-  def non_technical_question
-    @non_technical_question = Question.where(:non_technical => true)
+    @questions = @user.questions.where(:technical => true)
   end
 
   private
   def question_params
-    params.require(:question).permit(:question, :photo, :technial, :non_technical)
+    params.require(:question).permit(:question)
   end
 
   def get_collections
 
-    relation = Question.where("")
+    relation = Question.where(:technical => true)
     if params[:query]
       @query = params[:query].strip
       relation = relation.search(@query) if !@query.blank?
@@ -73,5 +49,3 @@ class QuestionsController < ApplicationController
 
   end
 end
-
-
