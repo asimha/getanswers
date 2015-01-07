@@ -40,6 +40,8 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'twitter-bootstrap-rails'
+  gem 'bootstrap-sass', '3.0.2.0'
+  gem 'bootstrap-modal-rails'
 end
 
 # Use ActiveModel has_secure_password

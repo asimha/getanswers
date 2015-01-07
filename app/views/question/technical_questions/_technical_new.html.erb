@@ -1,0 +1,8 @@
+<div>
+	<%= form_for @question, url: technical_create_path(@question) do |f| %>
+	<%= f.text_area :question, :placeholder => "Go ahead and ask a question" %>
+	<%= f.submit %>
+	<% end %>
+</div>
+
+

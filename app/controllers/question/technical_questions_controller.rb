@@ -8,6 +8,10 @@ class Question::TechnicalQuestionsController < ApplicationController
 
   def technical_new
     @question = Question.new
+    respond_to do |format|
+      format.html { }
+      format.js {}
+    end
   end
 
   def technical_create
